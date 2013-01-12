@@ -1,28 +1,31 @@
 require "spec_helper"
 
-describe "/home/_forecast.html.erb" do
-  let(:forecast) { Forecast.get_a_sample_forecast() }
+describe "home/_forecast" do
 
-  it "should show location name for the forecast" do
-    render :partial => "/home/_forecast.html.erb", :locals => {:forecast => @forecast}
+  let(:fc) { Forecast.get_a_sample_forecast() }
 
-    rendered.should contain("sample location")
+  before {
+    view.stub(:forecast).and_return(fc)
+    render;
+  }
+
+  it "should show location" do
+    rendered.should have_content "sample location"
+    rendered.should have_content  "8:00 .m."
+    rendered.should have_content  = "12:00 p.m."
+    rendered.should have_content  = "5:00 p.m."
+    rendered.should have_content  = "8:00 p.m."
+    rendered.should have_content  = 32
+    rendered.should have_content  = 34
+    rendered.should have_content  = 34
+    rendered.should have_content  = 30
+    rendered.should have_content  = 10
+    rendered.should have_content  = 15
+    rendered.should have_content  = 10
+    rendered.should have_content  = 10
+    rendered.should have_content  = "rain"
+    rendered.should have_content t = "rain"
+    rendered.should have_content  = "rain"
+    rendered.should have_content  = "snow"
   end
 end
-#sample.location_name.should == "sample location"
-#sample.time_units[0].time_of_day_text = "8:00 a.m."
-#sample.time_units[1].time_of_day_text = "12:00 p.m."
-#sample.time_units[2].time_of_day_text = "5:00 p.m."
-#sample.time_units[3].time_of_day_text = "8:00 p.m."
-#sample.time_units[0].temperature = 32
-#sample.time_units[1].temperature = 34
-#sample.time_units[2].temperature = 34
-#sample.time_units[3].temperature = 30
-#sample.time_units[0].chance_of_precip = 10
-#sample.time_units[1].chance_of_precip = 15
-#sample.time_units[2].chance_of_precip = 10
-#sample.time_units[3].chance_of_precip = 10
-#sample.time_units[0].precip_type_text = "rain"
-#sample.time_units[1].precip_type_text = "rain"
-#sample.time_units[2].precip_type_text = "rain"
-#sample.time_units[3].precip_type_text = "snow"

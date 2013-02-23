@@ -143,6 +143,7 @@ DEPENDENCIES
   capybara
   coffee-rails (~> 3.2.1)
   jquery-rails
+  json
   rails (= 3.2.9)
   rspec-rails (~> 2.4)
   sass-rails (~> 3.2.3)

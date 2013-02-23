@@ -21,6 +21,7 @@ end
 
 gem 'jquery-rails'
 gem "capybara"
+gem "json"
 
 group :test, :development do
   gem "rspec-rails", "~> 2.4"
